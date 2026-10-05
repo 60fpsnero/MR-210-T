@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nero's $210 Marvel Rivals Tournament</title>
+<style>
+:root{--bg:#02030a;--ink:#f7f6ff;--muted:#a9a5c2;--purple:#8b35ff;--violet:#b629ff;--red:#ff244f;--blue:#2768ff;--gold:#ffd45a;--panel:rgba(6,8,19,.88);--line:#5632a5}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#02030a;color:var(--ink);font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-3;background:radial-gradient(circle at 8% 18%,#3814a9 0,transparent 24%),radial-gradient(circle at 94% 22%,#053b9c 0,transparent 24%),radial-gradient(circle at 5% 62%,rgba(255,21,73,.32),transparent 25%),radial-gradient(circle at 95% 72%,rgba(45,77,255,.30),transparent 24%),linear-gradient(#03040b,#06020d 48%,#02040c)}
+body:after{content:"";position:fixed;inset:0;z-index:-2;opacity:.38;background:linear-gradient(118deg,transparent 0 7%,rgba(137,38,255,.8) 7.2% 7.5%,transparent 7.8% 20%,rgba(255,34,83,.6) 20.2% 20.5%,transparent 20.8% 78%,rgba(28,92,255,.7) 78.2% 78.5%,transparent 78.8%),linear-gradient(63deg,transparent 0 14%,rgba(176,39,255,.55) 14.2% 14.5%,transparent 14.8% 85%,rgba(255,37,82,.5) 85.2% 85.5%,transparent 85.8%)}
+.topbar{height:54px;position:sticky;top:0;z-index:50;background:rgba(3,4,12,.94);border-bottom:1px solid #35265c;backdrop-filter:blur(14px)}.nav{max-width:930px;height:100%;margin:auto;display:flex;align-items:center;padding:0 18px;gap:28px}.brand{font-weight:1000;letter-spacing:.08em;white-space:nowrap}.brand i{display:inline-grid;place-items:center;width:28px;height:28px;margin-right:9px;font-style:normal;color:#fff;background:linear-gradient(145deg,#7435ff,#d83bff);clip-path:polygon(50% 0,100% 30%,84% 100%,50% 82%,16% 100%,0 30%)}nav{display:flex;gap:30px;margin:auto}nav a,.admin{color:#d8d5e6;text-decoration:none;font-size:12px;font-weight:900;text-transform:uppercase}.admin{padding:9px 20px;border-radius:6px;background:linear-gradient(#7d32ff,#4c08b5);box-shadow:0 0 18px #7c24ff80}.shell{width:min(934px,calc(100% - 28px));margin:auto}
+.hero{position:relative;text-align:center;min-height:375px;padding:16px 20px 12px;overflow:hidden}.hero:before,.hero:after{content:"";position:absolute;top:-20px;bottom:-10px;width:43%;z-index:-1;filter:saturate(1.25)}.hero:before{left:-9%;background:conic-gradient(from 205deg at 55% 45%,transparent 0 8%,#7d20ff 9% 12%,transparent 13% 19%,#ec1d62 20% 22%,transparent 23% 35%,#3f19ad 36% 42%,transparent 43%);clip-path:polygon(0 0,100% 0,79% 19%,100% 34%,70% 45%,96% 58%,62% 70%,88% 86%,0 100%)}.hero:after{right:-9%;background:conic-gradient(from 25deg at 45% 45%,transparent 0 8%,#1477ff 9% 12%,transparent 13% 20%,#b41dff 21% 24%,transparent 25% 36%,#ff254e 37% 40%,transparent 41%);clip-path:polygon(0 0,100% 0,100% 100%,12% 86%,38% 70%,4% 58%,30% 45%,0 34%,21% 19%)}
+.game{font-size:17px;letter-spacing:.38em;font-weight:900;margin-top:0}.prize{font-size:clamp(68px,11vw,112px);line-height:.82;margin:5px 0 0;font-weight:1000;letter-spacing:-.06em;background:linear-gradient(#fff,#c8c5da 55%,#fff);-webkit-background-clip:text;color:transparent;text-shadow:0 5px 0 rgba(86,65,137,.35)}.tourney{font-size:clamp(44px,7.6vw,78px);line-height:.9;margin:-1px 0 10px;font-weight:1000;font-style:italic;letter-spacing:-.06em;background:linear-gradient(180deg,#fff 5%,#d39cff 34%,#8a2bff 62%,#f4d5ff 100%);-webkit-background-clip:text;color:transparent;transform:skew(-5deg);filter:drop-shadow(0 7px 0 #4e0d83)}.date-row{display:flex;justify-content:center;gap:28px;font-size:14px;font-weight:900}.date-row span{display:flex;align-items:center;gap:8px}.date-row b{color:#a83cff;font-size:19px}.countdown{display:grid;grid-template-columns:repeat(4,92px);justify-content:center;gap:10px;margin:15px 0}.count-unit{padding:10px 5px;border:1px solid #5526a5;border-radius:5px;background:rgba(8,8,25,.76);box-shadow:inset 0 0 20px #4a158a20}.count-unit strong{display:block;font-size:29px}.count-unit span{font-size:9px;text-transform:uppercase}.register{width:min(246px,80%);padding:12px;border:1px solid #b95cff;border-radius:5px;color:#fff;background:linear-gradient(90deg,#5411c7,#8c19ff,#5d16d7);font-size:17px;font-weight:1000;box-shadow:0 0 20px #7e24ff88;cursor:pointer}.micro{margin-top:12px;color:#c6c0dc;font-size:11px;letter-spacing:.08em}.micro i{color:#7c4ee0;font-style:normal;margin:0 9px}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin:0 0 14px}.stat{height:78px;border:1px solid #5d36ad;border-radius:6px;background:linear-gradient(180deg,rgba(15,14,35,.96),rgba(5,8,18,.96));display:flex;align-items:center;justify-content:center;gap:13px}.stat .ico{font-size:29px}.stat strong{font-size:25px;display:block}.stat small{font-size:10px;text-transform:uppercase}.panel{border:1px solid #6c2ac5;border-radius:6px;background:linear-gradient(145deg,rgba(7,8,18,.95),rgba(3,7,16,.95));box-shadow:0 0 22px #5810a526;margin-bottom:14px}.panel-title{padding:11px 20px;border-bottom:1px solid #30254c;font-size:19px;font-weight:1000}.panel-title small{font-size:10px;color:#a89dca;margin-left:18px;font-weight:700}.bracket{padding:14px 20px 18px;display:grid;grid-template-columns:1.1fr 60px 1fr 60px .55fr;align-items:center;min-height:250px}.rounds{display:grid;gap:24px}.match h4,.finals h4{text-align:center;margin:0 0 6px;font-size:12px}.match h4 small,.finals h4 small{display:block;font-size:8px;color:#aaa4c1}.teamline{height:34px;display:flex;align-items:center;justify-content:space-between;padding:0 11px;background:#0b0e1a;border:1px solid #282b44;font-size:11px}.teamline.red{border-left:4px solid var(--red);box-shadow:inset 12px 0 25px #ff174320}.teamline.blue{border-left:4px solid var(--blue);box-shadow:inset 12px 0 25px #155dff20}.teamline.purple{border-left:4px solid #b31dff;box-shadow:inset 12px 0 25px #a719ff20}.wire{height:2px;background:linear-gradient(90deg,#ff244f,#9e29ff);box-shadow:0 0 9px currentColor}.finals{border:1px solid #2d314d;padding:12px;background:#080b16}.champ{text-align:center;border:1px solid #f4c94d;border-radius:7px;padding:18px 6px;color:var(--gold);box-shadow:0 0 16px #ffd24d33}.champ b{font-size:38px;display:block}.champ strong{font-size:28px;display:block}.live{border-color:#5834b6}.livehead{height:40px;display:flex;align-items:center;justify-content:space-between;padding:0 17px;border-bottom:1px solid #32274f}.livehead strong{color:#ff3857;font-size:18px}.status{font-size:9px;background:#12172d;padding:7px 15px;border:1px solid #252d55;border-radius:4px}.scoreboard{display:grid;grid-template-columns:1fr 80px 110px 80px 1fr;align-items:center;min-height:88px}.side{height:100%;display:flex;align-items:center;gap:20px;padding:0 25px;font-size:20px;font-weight:1000}.side.one{background:linear-gradient(90deg,#4b0612aa,transparent)}.side.two{justify-content:flex-end;background:linear-gradient(270deg,#062d78aa,transparent)}.score{font-size:34px;font-weight:1000;text-align:center}.versus{text-align:center;font-weight:1000}.versus small{display:block;color:#a8a3bf;font-size:9px;margin-top:6px}.teams-title{display:flex;justify-content:space-between;align-items:center}.teams-title small{font-size:9px;color:#a99bc9}.rosters{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:12px 18px 18px}.teamcard{padding:10px;border:1px solid;border-radius:6px;background:#070b15}.teamcard.red{border-color:#8c1b32;box-shadow:inset 0 0 32px #a20c201c}.teamcard.blue{border-color:#164a9e;box-shadow:inset 0 0 32px #0d4cc31c}.teamcard.purple{border-color:#7b18a9;box-shadow:inset 0 0 32px #9911c91c}.bench-wrap{padding:0 18px 18px}.teamcard.bench{border-color:#8f7aa8;box-shadow:inset 0 0 32px #8f7aa81c;background:linear-gradient(180deg,#0c0d16,#070912)}.teamcard.bench h3{display:flex;justify-content:space-between;align-items:center}.bench-note{font-size:9px;color:#9f98b6;font-weight:700}.teamcard h3{margin:0 0 8px;font-size:18px}.team-player{height:27px;border:1px solid #252a3d;background:#080b14;margin:3px 0;padding:6px 8px;font-size:10px}.team-player .small{display:none}.empty{padding:18px;text-align:center;color:#807a99;font-size:11px}.bottom{display:grid;grid-template-columns:1.08fr 1fr .92fr;gap:10px;margin-bottom:28px}.box{border:1px solid #2d3150;border-radius:6px;background:#070a13;padding:15px 20px;min-height:210px}.box h2{font-size:20px;margin:0 0 13px}.step{display:grid;grid-template-columns:35px 1fr;gap:10px;margin:10px 0}.num{width:31px;height:31px;border-radius:50%;display:grid;place-items:center;background:#37105f;border:1px solid #a42cff;font-weight:1000}.step b{font-size:11px}.step p,.info-grid p{font-size:9px;color:#b7b2c8;margin:2px 0;line-height:1.4}.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}.quick{display:grid;gap:8px}.quick button,.quick a{display:block;text-align:left;text-decoration:none;color:#fff;padding:10px 14px;border:1px solid #333955;border-radius:5px;background:#0d1120;font-size:10px;font-weight:900}.quick .primary{background:linear-gradient(90deg,#6c1ee2,#a427ff);border-color:#b04cff}.predictions{margin:0 0 28px}.prediction-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.prediction-card{border:1px solid #342b54;background:#070a13;border-radius:6px;padding:12px}.prediction-title{font-size:10px;font-weight:900;color:#c2a1ff}.prediction-row{display:grid;grid-template-columns:65px 1fr 30px;gap:5px;align-items:center;font-size:9px;margin:8px 0}.prediction-bar{height:7px;background:#1c1e2c;border-radius:9px;overflow:hidden}.prediction-fill{height:100%;background:linear-gradient(90deg,#7a29ff,#ff2b64)}.prediction-pct{text-align:right}.prediction-buttons{display:grid;grid-template-columns:1fr 1fr;gap:5px}.vote-btn{font-size:8px;padding:7px;background:#111526;border:1px solid #343958;color:#fff;border-radius:4px}.prediction-note{font-size:8px;color:#89839c;margin-top:6px}.modal{display:none;position:fixed;inset:0;z-index:100;background:#02030be8;backdrop-filter:blur(8px);padding:14px;overflow:auto}.modal.show{display:block}.signup-shell{width:min(720px,100%);margin:24px auto;border:1px solid #5d32a8;border-radius:12px;background:#090b16;overflow:hidden}.signup-top{padding:24px;background:linear-gradient(120deg,#281052,#10132b);border-bottom:1px solid #34245a}.signup-top .tiny{font-size:10px;color:#bf9cff;font-weight:900;letter-spacing:.12em}.signup-top h2{margin:6px 0}.signup-top p{color:#aaa4bd}.formbody{padding:20px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{margin-bottom:12px}.field.full{grid-column:1/-1}label{display:block;font-size:11px;font-weight:900;margin-bottom:5px}input,select{width:100%;padding:12px;background:#050711;border:1px solid #343751;color:#fff;border-radius:5px}.role-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.role-option input,.team-option input{position:absolute;opacity:0}.role-option span,.team-option span{display:grid;place-items:center;min-height:45px;border:1px solid #343751;border-radius:5px;font-size:10px}.role-option input:checked+span,.team-option input:checked+span{border-color:#9a3dff;background:#2c0c52}.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.privacy{font-size:9px;color:#aaa4bd;margin:10px 0}.actions{display:grid;grid-template-columns:1fr auto;gap:8px}.cta,.secondary{padding:12px;border-radius:5px;font-weight:900}.cta{border:1px solid #a849ff;color:#fff;background:linear-gradient(90deg,#6418d6,#a329ff)}.secondary{border:1px solid #343751;color:#fff;background:#10131e}.msg{display:none;padding:10px;margin-top:10px;background:#12301b}.err{background:#351218}.adminlink{display:block;text-align:center;color:#746e89;font-size:10px;text-decoration:none;margin:20px}
+@media(max-width:760px){.nav{gap:10px}.brand{font-size:11px}nav{display:none}.admin{margin-left:auto}.shell{width:min(100% - 14px,934px)}.hero{min-height:430px;padding-left:4px;padding-right:4px}.game{font-size:12px}.date-row{font-size:11px;gap:12px}.countdown{grid-template-columns:repeat(4,1fr);gap:5px}.count-unit strong{font-size:22px}.stats{grid-template-columns:repeat(2,1fr)}.stats .stat:last-child{grid-column:1/-1}.bracket{grid-template-columns:1fr;gap:12px}.wire{display:none}.scoreboard{grid-template-columns:1fr 40px 60px 40px 1fr}.side{padding:0 8px;font-size:13px}.score{font-size:26px}.rosters,.bottom,.prediction-grid{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.role-grid{grid-template-columns:1fr 1fr}.field.full{grid-column:auto}}
+
+.partner-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 14px}.partner-card{border:1px solid #5632a5;border-radius:6px;background:linear-gradient(145deg,rgba(10,9,24,.97),rgba(4,7,16,.97));padding:18px 20px;text-align:center;box-shadow:0 0 24px #6e1fd526}.partner-card.twitch{border-color:#8c39ff;background:linear-gradient(135deg,rgba(91,28,175,.22),rgba(7,8,18,.97))}.partner-card.dubby{border-color:#2d9fba;background:linear-gradient(135deg,rgba(26,119,147,.18),rgba(7,8,18,.97))}.partner-kicker{font-size:10px;font-weight:1000;letter-spacing:.14em;text-transform:uppercase;color:#cba9ff}.partner-card.dubby .partner-kicker{color:#8ff7ff}.partner-card h2{font-size:18px;margin:7px 0}.partner-card p{font-size:10px;color:#b9b3cc;line-height:1.5;margin:0 auto 13px;max-width:390px}.partner-btn{display:inline-block;text-decoration:none;color:#fff;border:1px solid #a94cff;border-radius:5px;padding:10px 16px;font-size:10px;font-weight:1000;background:linear-gradient(90deg,#6317d8,#9e27ff);box-shadow:0 0 16px #7d24ff55}.dub-btn{border-color:#4dd8f3;background:linear-gradient(90deg,#12637d,#178fac);box-shadow:0 0 16px #32c9e744}@media(max-width:760px){.partner-grid{grid-template-columns:1fr}}
+</style></head><body>
+<div class="topbar"><div class="nav"><div class="brand"><i>V</i> NEROO EVENTS</div><nav><a href="#">Home</a><a href="#register" onclick="openForm()">Register</a><a href="#playersSection">Teams</a><a href="#bracketSection">Bracket</a><a href="#rules">Rules</a><a href="#faq">FAQ</a></nav><a class="admin" href="/admin.html">👤 Admin</a></div></div>
+<div class="shell">
+<section class="hero"><div class="game">MARVEL RIVALS</div><div class="prize">$210</div><div class="tourney">TOURNAMENT</div><div class="date-row"><span><b>▣</b> OCTOBER 25, 2026</span><span><b>◷</b> 7:00 PM ET</span></div><div class="countdown" id="tournamentCountdown"><div class="count-unit"><strong id="cdDays">00</strong><span>Days</span></div><div class="count-unit"><strong id="cdHours">00</strong><span>Hours</span></div><div class="count-unit"><strong id="cdMinutes">00</strong><span>Minutes</span></div><div class="count-unit"><strong id="cdSeconds">00</strong><span>Seconds</span></div></div><button class="register" onclick="openForm()">REGISTER NOW　›</button><div class="micro">FREE ENTRY <i>|</i> 18 PLAYER LIMIT <i>|</i> INDIVIDUAL SIGN UP</div></section>
+<section class="stats"><div class="stat"><div class="ico">🏆</div><div><strong>$210</strong><small>Prize Pool</small></div></div><div class="stat"><div class="ico">👥</div><div><strong id="count">0 / 18</strong><small>Players</small></div></div><div class="stat"><div class="ico">♟</div><div><strong>3</strong><small>Teams</small></div></div><div class="stat"><div class="ico">👥</div><div><strong>6v6</strong><small>Per Team</small></div></div><div class="stat"><div class="ico">⚔</div><div><strong>BO3</strong><small>Matches</small></div></div></section>
+<section class="panel" id="bracketSection"><div class="panel-title">TOURNAMENT BRACKET <small>3 TEAM SECOND-CHANCE FORMAT (BO3)</small></div><div class="bracket"><div class="rounds"><div class="match"><h4>ROUND 1<small>BO3</small></h4><div class="teamline red"><span>Team 1</span><b id="r1a">—</b></div><div class="teamline blue"><span>Team 2</span><b id="r1b">—</b></div></div><div class="match"><h4>ROUND 2<small>BO3</small></h4><div class="teamline"><span id="pubRound2A">Round 1 Loser</span><b id="r2a">—</b></div><div class="teamline purple"><span>Team 3</span><b id="r2b">—</b></div></div></div><div class="wire"></div><div class="finals"><h4>FINALS<small>BO3</small></h4><div class="teamline"><span id="pubFinalA">Round 1 Winner</span><b id="fa">—</b></div><div class="teamline"><span id="pubFinalB">Round 2 Winner</span><b id="fb">—</b></div><div id="pubRound1Winner" style="display:none"></div><div id="pubRound2Winner" style="display:none"></div><div id="pubRound1Score" style="display:none"></div><div id="pubRound2Score" style="display:none"></div><div id="pubFinalScore" style="display:none"></div></div><div class="wire" style="background:linear-gradient(90deg,#8c29ff,#ffd45a)"></div><div class="champ">CHAMPION<b>♛</b><strong id="pubChampion">?</strong></div></div></section>
+<section class="panel live"><div class="livehead"><strong>● LIVE MATCH</strong><span class="status" id="liveStatus">TOURNAMENT NOT STARTED</span></div><div class="scoreboard"><div class="side one" id="liveA">TEAM 1</div><div class="score" id="liveScoreA">0</div><div class="versus">VS<small>BO3</small></div><div class="score" id="liveScoreB">0</div><div class="side two" id="liveB">TEAM 2</div></div></section>
+<section class="panel" id="playersSection"><div class="panel-title teams-title"><span>TEAMS</span><small>TEAMS WILL BE REVEALED AFTER THE DRAFT</small></div><div class="rosters"><div class="teamcard red"><h3>🔻 TEAM 1 <small id="tc1">0 / 6</small></h3><div id="pubTeam1"><div class="empty">Player 1<br>Player 2<br>Player 3<br>Player 4<br>Player 5<br>Player 6</div></div></div><div class="teamcard blue"><h3>🔷 TEAM 2 <small id="tc2">0 / 6</small></h3><div id="pubTeam2"><div class="empty">Player 1<br>Player 2<br>Player 3<br>Player 4<br>Player 5<br>Player 6</div></div></div><div class="teamcard purple"><h3>🔻 TEAM 3 <small id="tc3">0 / 6</small></h3><div id="pubTeam3"><div class="empty">Player 1<br>Player 2<br>Player 3<br>Player 4<br>Player 5<br>Player 6</div></div></div></div><div class="bench-wrap"><div class="teamcard bench"><h3>🪑 BENCH <small id="tcb">0</small></h3><div class="bench-note">Approved players not currently in the starting 18 can be listed here.</div><div id="pubBench"><div class="empty">No bench players yet.</div></div></div></div><div id="pubFree" style="display:none"></div><span id="tcf" style="display:none"></span></section>
+<section class="partner-grid" id="partners"><div class="partner-card twitch"><div class="partner-kicker">🟣 TWITCH FOLLOW REQUIRED</div><h2>FOLLOW 60FPSNERO TO PLAY</h2><p>All tournament participants must be following 60fpsnero on Twitch. Your follow will be verified before the tournament.</p><a class="partner-btn" href="https://www.twitch.tv/60fpsnero" target="_blank" rel="noopener noreferrer">FOLLOW 60FPSNERO ON TWITCH ↗</a></div><div class="partner-card dubby"><div class="partner-kicker">⚡ SPONSORED BY DUBBY ENERGY</div><h2>SAVE 10% WITH CODE iNero</h2><p>Use creator code <strong>iNero</strong> for 10% off your Dubby Energy order and support the tournament.</p><a class="partner-btn dub-btn" href="https://www.dubby.gg/discount/iNero?ref=hzszsbxr" target="_blank" rel="noopener noreferrer">SHOP DUBBY ENERGY ↗</a></div></section>
+<section class="bottom"><div class="box"><h2>HOW TO JOIN</h2><div class="step"><span class="num">1</span><div><b>Register</b><p>Fill out the signup form with your gamer tag, role, and ranks.</p></div></div><div class="step"><span class="num">2</span><div><b>Get Approved</b><p>Your registration will be reviewed and approved.</p></div></div><div class="step"><span class="num">3</span><div><b>Be Drafted</b><p>Players will be evenly drafted into 3 balanced teams.</p></div></div><div class="step"><span class="num">4</span><div><b>Compete</b><p>Show up October 25 at 7 PM ET and compete for $210!</p></div></div></div><div class="box" id="rules"><h2>IMPORTANT INFO</h2><div class="info-grid"><p><b>🎮 Game</b><br>Marvel Rivals</p><p><b>▣ Date</b><br>October 25, 2026</p><p><b>◷ Time</b><br>7:00 PM ET</p><p><b>👥 Teams</b><br>3 Teams (6 Players Each)</p><p><b>⚔ Format</b><br>Best of 3 (BO3)</p><p><b>◆ Entry Fee</b><br>FREE</p><p><b>♟ Player Limit</b><br>18 Players</p><p><b>↻ Bracket</b><br>Second-Chance Format</p></div></div><div class="box quick" id="faq"><h2>QUICK LINKS</h2><button class="primary" onclick="openForm()">👤　REGISTER NOW　›</button><a href="#bracketSection">⚔　VIEW BRACKET　›</a><a href="#rules">▤　TOURNAMENT RULES　›</a><a href="#predictionsSection">?　VIEW PREDICTIONS　›</a></div></section>
+<section class="predictions" id="predictionsSection"><div class="panel-title">VIEWER PREDICTIONS <small>VOTING OPENS OCTOBER 25 AT 7:00 PM ET</small></div><div id="predictionLockBanner" style="display:none"></div><div class="prediction-grid"><div class="prediction-card" data-match="round1"><div class="prediction-title">ROUND 1 PREDICTION</div><div class="prediction-row"><div data-team-a>Team 1</div><div class="prediction-bar"><div class="prediction-fill" data-fill-a></div></div><div class="prediction-pct" data-pct-a>0%</div></div><div class="prediction-row"><div data-team-b>Team 2</div><div class="prediction-bar"><div class="prediction-fill" data-fill-b></div></div><div class="prediction-pct" data-pct-b>0%</div></div><div class="prediction-buttons"><button class="vote-btn" data-vote-a>VOTE TEAM 1</button><button class="vote-btn" data-vote-b>VOTE TEAM 2</button></div><div class="prediction-note" data-note></div></div><div class="prediction-card" data-match="round2"><div class="prediction-title">ROUND 2 PREDICTION</div><div class="prediction-row"><div data-team-a>Round 1 Loser</div><div class="prediction-bar"><div class="prediction-fill" data-fill-a></div></div><div class="prediction-pct" data-pct-a>0%</div></div><div class="prediction-row"><div data-team-b>Team 3</div><div class="prediction-bar"><div class="prediction-fill" data-fill-b></div></div><div class="prediction-pct" data-pct-b>0%</div></div><div class="prediction-buttons"><button class="vote-btn" data-vote-a>VOTE TBD</button><button class="vote-btn" data-vote-b>VOTE TEAM 3</button></div><div class="prediction-note" data-note></div></div><div class="prediction-card" data-match="final"><div class="prediction-title">CHAMPIONSHIP PREDICTION</div><div class="prediction-row"><div data-team-a>TBD</div><div class="prediction-bar"><div class="prediction-fill" data-fill-a></div></div><div class="prediction-pct" data-pct-a>0%</div></div><div class="prediction-row"><div data-team-b>TBD</div><div class="prediction-bar"><div class="prediction-fill" data-fill-b></div></div><div class="prediction-pct" data-pct-b>0%</div></div><div class="prediction-buttons"><button class="vote-btn" data-vote-a disabled>VOTE TBD</button><button class="vote-btn" data-vote-b disabled>VOTE TBD</button></div><div class="prediction-note" data-note></div></div></div></section><a class="adminlink" href="/admin.html">Organizer Admin</a></div>
+<div class="modal" id="modal">
+  <div class="signup-shell">
+    <div class="signup-top">
+      <div class="tiny">Tournament Registration</div>
+      <h2>Claim Your Spot 🎮</h2>
+      <p>Submit your info once. Nero will review your registration before it appears publicly.</p>
+    </div>
+    <div class="formbody">
+      <form id="signup">
+        <div class="grid">
+          <div class="field"><label>Gamer Tag</label><input name="gamer_tag" placeholder="Your in-game name" required maxlength="40"></div>
+          <div class="field"><label>Discord Username</label><input name="discord" placeholder="Private — organizer only" required maxlength="80"></div>
+
+          <div class="field full">
+            <label>Choose Your Role</label>
+            <div class="role-grid">
+              <label class="role-option"><input type="radio" name="role" value="Vanguard" required><span>🛡️ Vanguard</span></label>
+              <label class="role-option"><input type="radio" name="role" value="Duelist"><span>⚔️ Duelist</span></label>
+              <label class="role-option"><input type="radio" name="role" value="Strategist"><span>💚 Strategist</span></label>
+              <label class="role-option"><input type="radio" name="role" value="Flex"><span>🔄 Flex</span></label>
+            </div>
+          </div>
+
+          <div class="field"><label>Current Rank</label><input name="current_rank" placeholder="Example: Diamond 2" required maxlength="40"></div>
+          <div class="field"><label>Highest Peak Rank</label><input name="peak_rank" placeholder="Example: Grandmaster" required maxlength="40"></div>
+
+          <div class="field full">
+            <label>Team Status</label>
+            <div class="team-grid">
+              <label class="team-option"><input type="radio" name="team_status" value="Has Team" required><span>👥 I Have a Team</span></label>
+              <label class="team-option"><input type="radio" name="team_status" value="Free Agent"><span>🪑 Free Agent</span></label>
+            </div>
+          </div>
+
+          <div class="field full" id="teamWrap" style="display:none"><label>Team Name</label><input name="team_name" id="teamName" placeholder="Enter your team name" maxlength="60"></div>
+        </div>
+
+        <div class="privacy">🔒 Your Discord stays private. The public roster only shows your Gamer Tag, role, ranks, and team/free-agent status.</div>
+        <div class="actions">
+          <button class="cta" type="submit">SUBMIT REGISTRATION</button>
+          <button class="secondary" type="button" onclick="closeForm()">Cancel</button>
+        </div>
+        <div id="msg" class="msg"></div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function openForm(){modal.classList.add('show');msg.style.display='none';document.body.style.overflow='hidden'}
+function closeForm(){modal.classList.remove('show');document.body.style.overflow=''}
+document.querySelectorAll('input[name="team_status"]').forEach(el=>el.addEventListener('change',function(){
+ const y=this.value==='Has Team';teamWrap.style.display=y?'block':'none';teamName.required=y;if(!y)teamName.value='';
+}));
+modal.addEventListener('click',e=>{if(e.target===modal)closeForm()});
+function publicCard(p){
+ return `<div class="team-player"><b>${esc(p.gamer_tag)}</b><div class="small">${esc(p.role||'')} • Current: ${esc(p.current_rank||'')} • Peak: ${esc(p.peak_rank||'')}<br>${p.team_status==='Free Agent'?'Signup: Free Agent':'Signup Team: '+esc(p.team_name||'Unnamed')}</div></div>`;
+}
+function putPublic(id,arr,msg='No players here.'){
+ document.getElementById(id).innerHTML=arr.length?arr.map(publicCard).join(''):`<div class="empty">${msg}</div>`;
+}
+async function loadPlayers(){
+ try{
+  const r=await fetch('/.netlify/functions/players'); const data=await r.json(); if(!r.ok) throw Error();
+  count.textContent=`${data.length} / 18`;
+  const by=g=>data.filter(p=>(p.tournament_group||'Unassigned')===g);
+  const t1=by('Team 1'),t2=by('Team 2'),t3=by('Team 3'),fa=by('Free Agents'),bench=by('Bench');
+  putPublic('pubTeam1',t1);putPublic('pubTeam2',t2);putPublic('pubTeam3',t3);
+  putPublic('pubBench',bench,'No bench players yet.');
+  putPublic('pubFree',fa);
+  tc1.textContent=`${t1.length} / 6`;tc2.textContent=`${t2.length} / 6`;tc3.textContent=`${t3.length} / 6`;
+  tcb.textContent=`${bench.length}`;tcf.textContent=`${fa.length}`;
+ }catch(e){
+  ['pubTeam1','pubTeam2','pubTeam3','pubBench','pubFree'].forEach(id=>document.getElementById(id).innerHTML='<div class="empty">Player list is temporarily unavailable.</div>');
+ }
+}
+
+async function loadBracket(){
+ try{
+  const r=await fetch('/.netlify/functions/bracket'); const b=await r.json(); if(!r.ok) throw Error();
+  const has=(a,c)=>a!==null&&a!==undefined&&c!==null&&c!==undefined;
+  pubRound1Score.textContent=has(b.round1_team1_score,b.round1_team2_score)?`${b.round1_team1_score}–${b.round1_team2_score}`:'—';
+  pubRound1Winner.textContent=b.round1_winner?`Winner: ${b.round1_winner} → Final • Loser: ${b.round1_loser} → Round 2`:'Winner to Final • Loser to Round 2';
+  pubRound2A.textContent=b.round1_loser||'Round 1 Loser';
+  pubRound2Score.textContent=has(b.round2_loser_score,b.round2_team3_score)?`${b.round2_loser_score}–${b.round2_team3_score}`:'—';
+  pubRound2Winner.textContent=b.round2_winner?`Winner: ${b.round2_winner} → Final`:'Winner to Final';
+  pubFinalA.textContent=b.round1_winner||'Round 1 Winner';
+  pubFinalB.textContent=b.round2_winner||'Round 2 Winner';
+  pubFinalScore.textContent=has(b.final_round1_score,b.final_round2_score)?`${b.final_round1_score}–${b.final_round2_score}`:'—';
+  pubChampion.textContent=b.champion?`🏆 Tournament Champion: ${b.champion}`:'Champion: TBD';
+   if(document.getElementById('r1a')){r1a.textContent=has(b.round1_team1_score,b.round1_team2_score)?b.round1_team1_score:'—';r1b.textContent=has(b.round1_team1_score,b.round1_team2_score)?b.round1_team2_score:'—';r2a.textContent=has(b.round2_loser_score,b.round2_team3_score)?b.round2_loser_score:'—';r2b.textContent=has(b.round2_loser_score,b.round2_team3_score)?b.round2_team3_score:'—';fa.textContent=has(b.final_round1_score,b.final_round2_score)?b.final_round1_score:'—';fb.textContent=has(b.final_round1_score,b.final_round2_score)?b.final_round2_score:'—';pubChampion.textContent=b.champion?b.champion:'?';}
+   if(b.champion){liveStatus.textContent='TOURNAMENT COMPLETE';liveA.textContent=b.round1_winner||'FINALIST';liveB.textContent=b.round2_winner||'FINALIST';liveScoreA.textContent=b.final_round1_score??0;liveScoreB.textContent=b.final_round2_score??0;}
+   else if(b.round2_winner){liveStatus.textContent='CHAMPIONSHIP';liveA.textContent=b.round1_winner;liveB.textContent=b.round2_winner;liveScoreA.textContent=b.final_round1_score??0;liveScoreB.textContent=b.final_round2_score??0;}
+   else if(b.round1_winner){liveStatus.textContent='ROUND 2';liveA.textContent=b.round1_loser;liveB.textContent='TEAM 3';liveScoreA.textContent=b.round2_loser_score??0;liveScoreB.textContent=b.round2_team3_score??0;}
+   else{liveStatus.textContent='ROUND 1';liveA.textContent='TEAM 1';liveB.textContent='TEAM 2';liveScoreA.textContent=b.round1_team1_score??0;liveScoreB.textContent=b.round1_team2_score??0;}
+ }catch(e){
+  pubRound1Winner.textContent='Bracket temporarily unavailable.';pubRound2Winner.textContent='Bracket temporarily unavailable.';pubChampion.textContent='Bracket temporarily unavailable.';
+ }
+}
+
+signup.addEventListener('submit',async e=>{
+ e.preventDefault();msg.style.display='none';
+ const body=Object.fromEntries(new FormData(e.target).entries());
+ try{
+  const r=await fetch('/.netlify/functions/register',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+  const d=await r.json();if(!r.ok)throw Error(d.error||'failed');
+  e.target.reset();teamWrap.style.display='none';msg.className='msg';msg.textContent='✅ You’re registered! Your entry is waiting for organizer approval.';msg.style.display='block';
+ }catch(err){msg.className='msg err';msg.textContent='❌ Could not submit registration. Please try again.';msg.style.display='block'}
+});
+
+let bracketState={round1_winner:null,round1_loser:null,round2_winner:null,champion:null};
+const VOTING_START=new Date('2026-10-25T19:00:00-04:00').getTime();
+
+async function loadPredictions(){
+  try{
+    const [vr,br]=await Promise.all([
+      fetch('/.netlify/functions/votes'),
+      fetch('/.netlify/functions/bracket')
+    ]);
+    const votes=await vr.json();
+    bracketState=await br.json();
+
+    renderPrediction('round1','Team 1','Team 2',votes.round1,!!bracketState.round1_winner);
+
+    const r2a=bracketState.round1_loser||'TBD';
+    const round2Ready=r2a!=='TBD';
+    renderPrediction('round2',r2a,'Team 3',votes.round2,!!bracketState.round2_winner,!round2Ready);
+
+    const fa=bracketState.round1_winner||'TBD', fb=bracketState.round2_winner||'TBD';
+    const finalReady=fa!=='TBD'&&fb!=='TBD';
+    renderPrediction('final',fa,fb,votes.final,!!bracketState.champion,!finalReady);
+  }catch(e){}
+}
+
+function renderPrediction(match,a,b,data={},closed=false,locked=false){
+  const card=document.querySelector(`.prediction-card[data-match="${match}"]`);
+  if(!card)return;
+  const ca=Number(data?.counts?.[a]||0), cb=Number(data?.counts?.[b]||0), total=ca+cb;
+  const pa=total?Math.round(ca*100/total):0, pb=total?100-pa:0;
+  card.querySelector('[data-team-a]').textContent=a;
+  card.querySelector('[data-team-b]').textContent=b;
+  card.querySelector('[data-fill-a]').style.width=pa+'%';
+  card.querySelector('[data-fill-b]').style.width=pb+'%';
+  card.querySelector('[data-pct-a]').textContent=pa+'%';
+  card.querySelector('[data-pct-b]').textContent=pb+'%';
+
+  const ba=card.querySelector('[data-vote-a]'), bb=card.querySelector('[data-vote-b]');
+  const voted=localStorage.getItem('nero_vote_'+match);
+  const beforeStart=Date.now()<VOTING_START;
+
+  ba.onclick=()=>castVote(match,a);
+  bb.onclick=()=>castVote(match,b);
+
+  const note=card.querySelector('[data-note]');
+
+  if(beforeStart){
+    ba.textContent='🔒 LOCKED';
+    bb.textContent='🔒 LOCKED';
+    ba.disabled=bb.disabled=true;
+    card.style.borderColor='#5a4350';
+    card.style.opacity='0.82';
+    note.innerHTML='<b style="color:#ffb3c4">Voting is locked.</b> Opens October 25 at 7:00 PM ET.';
+  }else{
+    ba.textContent=`VOTE ${a}`;
+    bb.textContent=`VOTE ${b}`;
+    card.style.borderColor='';
+    card.style.opacity='1';
+    ba.disabled=bb.disabled=closed||locked||!!voted;
+    if(closed) note.textContent='Voting closed — the official result has been recorded.';
+    else if(locked) note.textContent='Championship voting opens after Round 2 is complete.';
+    else if(voted) note.textContent=`Your vote: ${voted}`;
+    else note.textContent='Vote for who you think will win this BO3.';
+  }
+}
+
+async function castVote(match,team){
+  try{
+    if(Date.now()<VOTING_START){
+      alert('Voting opens October 25 at 7:00 PM ET.');
+      return;
+    }
+    const r=await fetch('/.netlify/functions/votes',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({match,team})
+    });
+    const d=await r.json();
+    if(!r.ok) throw Error(d.error||'Vote failed');
+    localStorage.setItem('nero_vote_'+match,team);
+    await loadPredictions();
+  }catch(e){
+    alert(e.message||'Could not submit vote.');
+  }
+}
+
+loadPredictions();
+setInterval(loadPredictions,1000);
+
+
+function updateTournamentCountdown(){
+ const target=new Date('2026-10-25T19:00:00-04:00').getTime(),diff=target-Date.now();
+ if(diff<=0){tournamentCountdown.innerHTML='<div style="grid-column:1/-1;font-size:22px;font-weight:950;color:#ffd85f">🎮 TOURNAMENT IS LIVE!</div>';return}
+ cdDays.textContent=String(Math.floor(diff/86400000)).padStart(2,'0');
+ cdHours.textContent=String(Math.floor((diff%86400000)/3600000)).padStart(2,'0');
+ cdMinutes.textContent=String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
+ cdSeconds.textContent=String(Math.floor((diff%60000)/1000)).padStart(2,'0');
+}
+updateTournamentCountdown();setInterval(updateTournamentCountdown,1000);
+
+loadPlayers();
+loadBracket();
+</script>
+
+<script>
+(function(){
+  const start = new Date('2026-10-25T19:00:00-04:00').getTime();
+  function updatePredictionLockBanner(){
+    const el = document.getElementById('predictionLockBanner');
+    if(!el) return;
+    el.style.display = Date.now() < start ? 'block' : 'none';
+  }
+  updatePredictionLockBanner();
+  setInterval(updatePredictionLockBanner, 1000);
+})();
+</script>
+
+</body>
+</html>
