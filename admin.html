@@ -16,35 +16,22 @@ button{border:0;border-radius:10px;padding:11px 14px;font-weight:800;color:white
 @media(max-width:760px){.grid,.assignment,.bracket-grid{grid-template-columns:1fr}.row{flex-direction:column}}
 </style></head>
 <body><div class="wrap">
-<div id="login" class="card"><h1>MR-210-T Organizer Admin</h1><p class="sub">Enter your organizer password.</p><input id="pw" type="password" placeholder="Admin password"><button class="primary" style="width:100%;margin-top:10px" onclick="loadAdmin()">Open Admin</button><div id="loginMsg"></div></div>
+<div id="login" class="card"><h1>Organizer Admin</h1><p class="sub">Enter your organizer password.</p><input id="pw" type="password" placeholder="Admin password"><button class="primary" style="width:100%;margin-top:10px" onclick="loadAdmin()">Open Admin</button><div id="loginMsg"></div></div>
 <div id="panel" class="hidden">
-<h1>MR-210-T Organizer Admin</h1><p class="sub">Approve registrations, organize approved players, and control the BO3 tournament bracket.</p>
-<div class="bracket">
-<h2>MR-210-T • BO3 Tournament Bracket</h2><p class="sub">3-team second-chance format. Round 1 winner goes to the Final; the Round 1 loser faces Team 3 for the other Final spot.</p>
+<h1>MR-210-T Organizer Admin</h1><p class="sub">Approve registrations, manage teams, record the 3 round-robin BO3 matches, then run a BO5 championship between the top 2 teams.</p>
+<div class="bracket"><h2>Round Robin + Championship</h2><p class="sub">BO3 series wins rank first. If teams are tied in series wins, map differential breaks the tie. If the cutoff is still tied after map differential, play one tiebreaker map and manually lock the two finalists below.</p>
 <div class="bracket-grid">
-<div class="match"><h3>Round 1</h3><span class="bo3">BO3</span><div class="matchup">Team 1 ⚔️ Team 2</div><div class="bracket-actions"><button onclick="setResult('round1',2,0)">Team 1: 2–0</button><button onclick="setResult('round1',2,1)">Team 1: 2–1</button><button onclick="setResult('round1',0,2)">Team 2: 2–0</button><button onclick="setResult('round1',1,2)">Team 2: 2–1</button></div><div id="round1Result" class="winner">Score: TBD</div></div>
-<div class="match"><h3>Round 2</h3><span class="bo3">BO3</span><div id="round2Matchup" class="matchup">Round 1 Loser ⚔️ Team 3</div><div id="round2Buttons" class="bracket-actions"><div class="empty">Record Round 1 first.</div></div><div id="round2Result" class="winner">Score: TBD</div></div>
-<div class="match champion" style="grid-column:1/-1"><h3>🏆 Championship</h3><span class="bo3">BO3</span><div id="finalMatchup" class="matchup">Round 1 Winner ⚔️ Round 2 Winner</div><div id="finalButtons" class="bracket-actions"><div class="empty">Record Round 1 and Round 2 first.</div></div><div id="championResult" class="winner">Champion: TBD</div></div>
-</div>
-<button class="danger" style="width:100%;margin-top:10px" onclick="resetBracket()">Reset Bracket Results</button>
-</div>
+<div class="match"><h3>Match 1</h3><span class="bo3">BO3</span><div class="matchup">Team 1 ⚔️ Team 2</div><div class="bracket-actions"><button onclick="setResult('match1',2,0)">Team 1: 2–0</button><button onclick="setResult('match1',2,1)">Team 1: 2–1</button><button onclick="setResult('match1',0,2)">Team 2: 2–0</button><button onclick="setResult('match1',1,2)">Team 2: 2–1</button></div><div id="match1Result" class="winner">Score: TBD</div></div>
+<div class="match"><h3>Match 2</h3><span class="bo3">BO3</span><div class="matchup">Team 2 ⚔️ Team 3</div><div class="bracket-actions"><button onclick="setResult('match2',2,0)">Team 2: 2–0</button><button onclick="setResult('match2',2,1)">Team 2: 2–1</button><button onclick="setResult('match2',0,2)">Team 3: 2–0</button><button onclick="setResult('match2',1,2)">Team 3: 2–1</button></div><div id="match2Result" class="winner">Score: TBD</div></div>
+<div class="match"><h3>Match 3</h3><span class="bo3">BO3</span><div class="matchup">Team 1 ⚔️ Team 3</div><div class="bracket-actions"><button onclick="setResult('match3',2,0)">Team 1: 2–0</button><button onclick="setResult('match3',2,1)">Team 1: 2–1</button><button onclick="setResult('match3',0,2)">Team 3: 2–0</button><button onclick="setResult('match3',1,2)">Team 3: 2–1</button></div><div id="match3Result" class="winner">Score: TBD</div></div>
+<div class="match"><h3>Standings</h3><div id="standingsAdmin" class="meta">No results yet.</div><div style="margin-top:12px"><b>Finalists / Tiebreak Override</b><div class="row" style="margin-top:8px"><select id="finalist1Select"><option>Team 1</option><option>Team 2</option><option>Team 3</option></select><select id="finalist2Select"><option>Team 2</option><option>Team 1</option><option>Team 3</option></select></div><button class="primary" style="width:100%;margin-top:8px" onclick="lockFinalists()">LOCK TOP 2 FINALISTS</button><div id="finalistStatus" class="winner">Finalists: TBD</div></div></div>
+<div class="match champion" style="grid-column:1/-1"><h3>🏆 Championship</h3><span class="bo3">BO5</span><div id="finalMatchup" class="matchup">Top Seed ⚔️ Second Seed</div><div id="finalButtons" class="bracket-actions"><div class="empty">Complete all round-robin matches first.</div></div><div id="championResult" class="winner">Champion: TBD</div></div>
+</div><button class="danger" style="width:100%;margin-top:10px" onclick="resetBracket()">Reset Tournament Results</button></div>
 <h2>Pending Registrations</h2><div id="pending"></div>
 <h2>Team Management</h2><p class="sub">Each tournament team is limited to 6 players.</p>
-<div class="card" style="border-color:#8e6b22;background:#19150d">
-<h2 style="margin-top:0">⚖️ Balanced Auto Draft</h2>
-<p class="sub">Automatically drafts 18 approved players into 3 teams of 6. The draft balances role coverage and rank strength, with randomized tie-breaking. Extra players are moved to Bench.</p>
-<button class="good" style="width:100%" onclick="autoDraft()">AUTO DRAFT 3 TEAMS</button>
-<div id="draftMsg" class="meta" style="margin-top:10px"></div>
-</div>
-<div class="grid">
-<div class="team"><div class="teamhead"><b>Team 1</b><span id="c1">0 / 6</span></div><div id="team1"></div></div>
-<div class="team"><div class="teamhead"><b>Team 2</b><span id="c2">0 / 6</span></div><div id="team2"></div></div>
-<div class="team"><div class="teamhead"><b>Team 3</b><span id="c3">0 / 6</span></div><div id="team3"></div></div>
-<div class="team"><div class="teamhead"><b>Free Agents</b><span id="cf"></span></div><div id="freeagents"></div></div>
-<div class="team"><div class="teamhead"><b>Bench</b><span id="cb"></span></div><div id="bench"></div></div>
-</div>
-<h2>Unassigned Approved Players</h2><div id="unassigned"></div>
-</div></div>
+<div class="card" style="border-color:#8e6b22;background:#19150d"><h2 style="margin-top:0">⚖️ Balanced Auto Draft</h2><p class="sub">Automatically drafts 18 approved players into 3 teams of 6. The draft balances role coverage and rank strength, with randomized tie-breaking. Extra players are moved to Bench.</p><button class="good" style="width:100%" onclick="autoDraft()">AUTO DRAFT 3 TEAMS</button><div id="draftMsg" class="meta" style="margin-top:10px"></div></div>
+<div class="grid"><div class="team"><div class="teamhead"><b>Team 1</b><span id="c1">0 / 6</span></div><div id="team1"></div></div><div class="team"><div class="teamhead"><b>Team 2</b><span id="c2">0 / 6</span></div><div id="team2"></div></div><div class="team"><div class="teamhead"><b>Team 3</b><span id="c3">0 / 6</span></div><div id="team3"></div></div><div class="team"><div class="teamhead"><b>Free Agents</b><span id="cf"></span></div><div id="freeagents"></div></div><div class="team"><div class="teamhead"><b>Bench</b><span id="cb"></span></div><div id="bench"></div></div></div>
+<h2>Unassigned Approved Players</h2><div id="unassigned"></div></div></div>
 <script>
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let password='';
@@ -55,46 +42,26 @@ const groups=["Team 1","Team 2","Team 3","Free Agents","Bench","Unassigned"];
 function approvedCard(p){const cur=p.tournament_group||'Unassigned';return `<div class="player"><strong>${esc(p.gamer_tag)}</strong><div class="meta">${info(p)}</div><span class="badge">${esc(cur)}</span><div class="assignment"><select id="sel-${esc(p.id)}">${groups.map(g=>`<option ${g===cur?'selected':''}>${g}</option>`).join('')}</select><button class="primary" onclick="assign('${esc(p.id)}')">Move</button></div><button class="danger" style="width:100%;margin-top:8px" onclick="act('${esc(p.id)}','remove')">Remove Approved Player</button></div>`}
 function put(id,a,msg='No players here.'){document.getElementById(id).innerHTML=a.length?a.map(approvedCard).join(''):`<div class="empty">${msg}</div>`}
 function render(players){const by=g=>players.filter(p=>(p.tournament_group||'Unassigned')===g);const a1=by('Team 1'),a2=by('Team 2'),a3=by('Team 3'),fa=by('Free Agents'),be=by('Bench'),un=by('Unassigned');put('team1',a1);put('team2',a2);put('team3',a3);put('freeagents',fa);put('bench',be);put('unassigned',un,'All approved players are assigned.');c1.textContent=`${a1.length} / 6`;c2.textContent=`${a2.length} / 6`;c3.textContent=`${a3.length} / 6`;cf.textContent=`${fa.length}`;cb.textContent=`${be.length}`}
-let bracketState={round1_winner:null,round1_loser:null,round1_team1_score:null,round1_team2_score:null,round2_winner:null,round2_loser:null,round2_loser_score:null,round2_team3_score:null,champion:null,final_round1_score:null,final_round2_score:null};
-async function loadBracket(){try{const r=await fetch('/.netlify/functions/bracket');const d=await r.json();if(r.ok){bracketState={...bracketState,...d};renderBracket()}}catch(e){}}
-function scoreText(a,b){return (a===null||a===undefined||b===null||b===undefined)?'TBD':`${a}–${b}`}
+let bracketState={};
+async function loadBracket(){try{const r=await fetch('/.netlify/functions/bracket');const d=await r.json();if(r.ok){bracketState=d;renderBracket()}}catch(e){}}
+function st(a,b){return a==null||b==null?'TBD':`${a}–${b}`}
+function resultText(label,a,b,w){return w?`Score: ${label} ${st(a,b)} • Winner: ${w}`:'Score: TBD'}
 function renderBracket(){
- const s1=scoreText(bracketState.round1_team1_score,bracketState.round1_team2_score);
- round1Result.textContent=bracketState.round1_winner?`Score: Team 1 ${s1} Team 2 • Winner: ${bracketState.round1_winner} • Loser: ${bracketState.round1_loser}`:'Score: TBD';
-
- const r2a=bracketState.round1_loser||'Round 1 Loser';
- round2Matchup.textContent=`${r2a} ⚔️ Team 3`;
- round2Buttons.innerHTML=bracketState.round1_loser?`<button onclick="setResult('round2',2,0)">${esc(r2a)}: 2–0</button><button onclick="setResult('round2',2,1)">${esc(r2a)}: 2–1</button><button onclick="setResult('round2',0,2)">Team 3: 2–0</button><button onclick="setResult('round2',1,2)">Team 3: 2–1</button>`:'<div class="empty">Record Round 1 first.</div>';
- const s2=scoreText(bracketState.round2_loser_score,bracketState.round2_team3_score);
- round2Result.textContent=bracketState.round2_winner?`Score: ${r2a} ${s2} Team 3 • Winner: ${bracketState.round2_winner}`:'Score: TBD';
-
- const a=bracketState.round1_winner||'Round 1 Winner',b=bracketState.round2_winner||'Round 2 Winner';
- finalMatchup.textContent=`${a} ⚔️ ${b}`;
- finalButtons.innerHTML=(bracketState.round1_winner&&bracketState.round2_winner)?`<button onclick="setResult('final',2,0)">${esc(a)}: 2–0</button><button onclick="setResult('final',2,1)">${esc(a)}: 2–1</button><button onclick="setResult('final',0,2)">${esc(b)}: 2–0</button><button onclick="setResult('final',1,2)">${esc(b)}: 2–1</button>`:'<div class="empty">Record Round 1 and Round 2 first.</div>';
- const fs=scoreText(bracketState.final_round1_score,bracketState.final_round2_score);
- championResult.textContent=bracketState.champion?`Final: ${a} ${fs} ${b} • 🏆 Champion: ${bracketState.champion}`:'Champion: TBD';
+ match1Result.textContent=resultText('Team 1',bracketState.match1_team1_score,bracketState.match1_team2_score,bracketState.match1_winner)+' Team 2';
+ match2Result.textContent=resultText('Team 2',bracketState.match2_team2_score,bracketState.match2_team3_score,bracketState.match2_winner)+' Team 3';
+ match3Result.textContent=resultText('Team 1',bracketState.match3_team1_score,bracketState.match3_team3_score,bracketState.match3_winner)+' Team 3';
+ const rows=bracketState.standings||[];standingsAdmin.innerHTML=rows.map((x,i)=>`<div style="padding:5px 0;border-bottom:1px solid #2a3140"><b>${i+1}. ${x.team}</b> • ${x.wins}-${x.losses} • Maps ${x.mapsWon}-${x.mapsLost} • Diff ${x.mapDiff>=0?'+':''}${x.mapDiff}</div>`).join('')||'No results yet.';
+ finalistStatus.textContent=bracketState.finalist1&&bracketState.finalist2?`Finalists: ${bracketState.finalist1} vs ${bracketState.finalist2}${bracketState.finalists_manual?' • Manual/tiebreak':''}`:'Finalists: TBD — resolve any standings tie first.';
+ const a=bracketState.finalist1||'Top Seed',b=bracketState.finalist2||'Second Seed';finalMatchup.textContent=`${a} ⚔️ ${b}`;
+ finalButtons.innerHTML=(bracketState.finalist1&&bracketState.finalist2)?[[3,0],[3,1],[3,2],[0,3],[1,3],[2,3]].map(([x,y])=>`<button onclick="setResult('final',${x},${y})">${x===3?esc(a):esc(b)}: ${Math.max(x,y)}–${Math.min(x,y)}</button>`).join(''):'<div class="empty">Complete all round-robin matches and resolve the top 2 first.</div>';
+ championResult.textContent=bracketState.champion?`Final: ${a} ${st(bracketState.final_team1_score,bracketState.final_team2_score)} ${b} • 🏆 Champion: ${bracketState.champion}`:'Champion: TBD';
 }
-async function setResult(round,scoreA,scoreB){
- let label;
- if(round==='round1') label=`Team 1 ${scoreA}–${scoreB} Team 2`;
- else if(round==='round2') label=`${bracketState.round1_loser} ${scoreA}–${scoreB} Team 3`;
- else label=`${bracketState.round1_winner} ${scoreA}–${scoreB} ${bracketState.round2_winner}`;
- if(!confirm(`Save result: ${label}?`))return;
- try{const d=await api('admin-action',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'set-bracket-result',round,scoreA,scoreB})});bracketState=d.bracket;renderBracket()}catch(e){alert(e.message)}
-}
-async function resetBracket(){if(!confirm('Reset all bracket scores and winners?'))return;try{const d=await api('admin-action',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'reset-bracket'})});bracketState=d.bracket;renderBracket()}catch(e){alert(e.message)}}
+async function setResult(round,scoreA,scoreB){const labels={match1:'Team 1 vs Team 2',match2:'Team 2 vs Team 3',match3:'Team 1 vs Team 3',final:`${bracketState.finalist1} vs ${bracketState.finalist2}`};if(!confirm(`Save ${labels[round]} result ${scoreA}–${scoreB}?`))return;try{const d=await api('admin-action',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'set-bracket-result',round,scoreA,scoreB})});bracketState=d.bracket;renderBracket()}catch(e){alert(e.message)}}
+async function lockFinalists(){const finalist1=finalist1Select.value,finalist2=finalist2Select.value;if(finalist1===finalist2){alert('Choose two different teams.');return}if(!confirm(`Lock championship: ${finalist1} vs ${finalist2}?`))return;try{const d=await api('admin-action',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'set-finalists',finalist1,finalist2})});bracketState=d.bracket;renderBracket()}catch(e){alert(e.message)}}
+async function resetBracket(){if(!confirm('Reset all round-robin and championship results?'))return;try{const d=await api('admin-action',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'reset-bracket'})});bracketState=d.bracket;renderBracket()}catch(e){alert(e.message)}}
 async function loadAdmin(){password=pw.value||password;if(!password){loginMsg.textContent='Enter your password.';return}try{const d=await api('admin-list');login.classList.add('hidden');panel.classList.remove('hidden');pending.innerHTML=d.pending.length?d.pending.map(pendingCard).join(''):'<div class="empty">No pending registrations.</div>';render(d.approved||[]);await loadBracket()}catch(e){loginMsg.textContent=e.message}}
 async function act(id,action){if(!confirm(`${action} this player?`))return;try{await api('admin-action',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id,action})});await loadAdmin()}catch(e){alert(e.message)}}
 async function assign(id){const group=document.getElementById('sel-'+id).value;try{await api('admin-action',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id,action:'assign',group})});await loadAdmin()}catch(e){alert(e.message)}}
-async function autoDraft(){
- const ok=confirm('Run the balanced auto draft? This will assign up to 18 approved players across Team 1, Team 2, and Team 3, and move extra players to Bench. Existing team assignments will be replaced.');
- if(!ok)return;
- draftMsg.textContent='Drafting balanced teams…';
- try{
-   const d=await api('admin-action',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'auto-draft'})});
-   draftMsg.textContent=`✅ Draft complete: ${d.drafted} players across 3 teams${d.benched?` • ${d.benched} benched`:''}.`;
-   await loadAdmin();
- }catch(e){draftMsg.textContent='❌ '+e.message;alert(e.message)}
-}
+async function autoDraft(){const ok=confirm('Run the balanced auto draft? This will assign 18 approved players across Team 1, Team 2, and Team 3, move extras to Bench, and reset tournament results.');if(!ok)return;draftMsg.textContent='Drafting balanced teams…';try{const d=await api('admin-action',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'auto-draft'})});draftMsg.textContent=`✅ Draft complete: ${d.drafted} players across 3 teams${d.benched?` • ${d.benched} benched`:''}.`;await loadAdmin()}catch(e){draftMsg.textContent='❌ '+e.message;alert(e.message)}}
 pw.addEventListener('keydown',e=>{if(e.key==='Enter')loadAdmin()});
 </script></body></html>
